@@ -36,7 +36,6 @@ class LinkedList:
         return linkedListValues
 
     def insert(self, index, value):
-        # write your code here.
         tempIndex = 0
         node = {
             'value': value,
@@ -63,7 +62,6 @@ class LinkedList:
         self.length += 1
                     
     def remove(self, index):
-        # write your code here.
         tempNode = self.head # node 0. 
         tempIndex = 0
         while (tempIndex < index-1):
@@ -71,13 +69,17 @@ class LinkedList:
             tempIndex += 1
             if tempIndex == index-1:
                 tempNode['next'] = tempNode['next']['next']
-            
-            
-        
-    
+
     def lookup(self, index):
-        # write your code here.
-        return None
+        tempIndex = 0
+        tempNode = self.head
+        while(tempIndex < index):
+            tempNode = tempNode['next'] 
+            tempIndex += 1
+        
+        return tempNode
+        
+        
 
 myLinkedList1 = LinkedList(10)
 myLinkedList1.append(5)
@@ -96,3 +98,5 @@ print(values)
 myLinkedList1.remove(2)
 myLinkedList1.remove(3)
 print(myLinkedList1.printlist())
+lookup_node = myLinkedList1.lookup(0)
+print(f"lookup node is {lookup_node}")
