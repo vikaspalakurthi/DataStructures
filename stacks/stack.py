@@ -26,18 +26,22 @@ class Stack:
         if self.length == 0:
             return None
         else:
+            poppingElement = self.top
             self.top = self.top.next
             self.length -= 1
-        return self.top.value
+        return poppingElement.value # return the popped element. 
 
     def peek(self):
         return self.top.value
+    
+    def isEmpty(self):
+        return self.length == 0
 
-
-stack1 = Stack()
-print(stack1.push("google"))
-print(stack1.push("udemy"))
-print(stack1.push("discord"))
-print(stack1.pop())
-print(stack1.peek())
-print(stack1.length)
+if __name__ == "__main__":
+    stack1 = Stack()
+    print(stack1.push("google"))
+    print(stack1.push("udemy"))
+    print(stack1.push("discord"))
+    print(stack1.pop())
+    print(stack1.peek())
+    print(stack1.length)
